@@ -27,14 +27,14 @@ class RecordDetailView(LockedView, DetailView):
 
 class RecordCreateView(LockedView, SuccessMessageMixin, CreateView):
     model = Record
-    fields = ["title", "content", "author"]
+    fields = ["title", "content", "image", "author"]
     success_url = reverse_lazy("record-list")
     success_message = "Новая запись успешно создана!"
 
 
 class RecordUpdateView(LockedView, SuccessMessageMixin, UpdateView):
     model = Record
-    fields = ["title", "content", "author"]
+    fields = ["title", "content", "image", "author"]
     success_message = "Запись успешно обновлена!"
 
     def get_success_url(self):

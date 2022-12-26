@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Запись дневника</title>
+    <title>Запись блога</title>
 </head>
 <body>
 {% extends "records/base.html" %}
@@ -12,6 +12,9 @@
         <h2>{{ record.date_created|date:'d.m.Y H:i' }}</h2>
         <h3>{{ record.title }}</h3>
         <p>{{ record.content }}</p>
+        {% if record.image %}
+            <img src="{{ record.image.url }}" alt="connect" style="max-height:400px">
+        {% endif %}
         <p>Автор: {{ record.author }}</p>
     </article>
 
