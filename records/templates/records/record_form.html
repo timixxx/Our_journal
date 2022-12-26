@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Изменение записи</title>
+</head>
+<body>
+{% extends "records/base.html" %}
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input class="btn btn-primary" type="submit" value="Сохранить">
+    </form>
+    {% if record %}
+        <a href="{% url 'record-detail' record.id %}">
+            <button type="button" class="btn btn-secondary">Отмена</button>
+        </a>
+    {% else %}
+        <a href="{% url 'record-list' %}">
+            <button type="button" class="btn btn-secondary">Отмена</button>
+        </a>
+    {% endif %}
+{% endblock %}
+</body>
+</html>

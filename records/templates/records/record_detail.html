@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Запись дневника</title>
+</head>
+<body>
+{% extends "records/base.html" %}
+
+{% block content %}
+    <article>
+        <h2>{{ record.date_created|date:'d.m.Y H:i' }}</h2>
+        <h3>{{ record.title }}</h3>
+        <p>{{ record.content }}</p>
+        <p>Автор: {{ record.author }}</p>
+    </article>
+
+    <p>
+    <a href="{% url 'record-update' record.id %}">
+    <button type="button" class="btn btn-secondary">Изменить</button></a>
+    <a href="{% url 'record-delete' record.id %}">
+    <button type="button" class="btn btn-danger">Удалить</button></a>
+    </p>
+
+{% endblock %}
+</body>
+</html>

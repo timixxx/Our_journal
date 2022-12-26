@@ -1,0 +1,15 @@
+{% extends 'records/base.html' %}
+
+{% block content %}
+    <h3>Добро пожаловать, {{ user.username|default:'Гость' }}!</h3>
+
+    <div>
+    {% if user.is_authenticated %}
+        <br>
+        <a href="{% url "logout" %}"><button type="button" class="btn btn-dark">Выйти из аккаунта</button></a>
+        <a href="{% url "password_change" %}"><button type="button" class="btn btn-secondary">Сменить пароль</button></a>
+    {% else %}
+        <a href="{% url "login" %}"><button type="button" class="btn btn-dark">Войти в аккаунт</button></a>
+    {% endif %}
+    </div>
+{% endblock %}
