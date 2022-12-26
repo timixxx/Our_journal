@@ -19,7 +19,7 @@ def register(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return render(request, "users/dashboard.html")# redirect(reverse("dashboard"))
+            return render(request, "users/dashboard.html") # redirect(reverse("dashboard"))
 
 
 
