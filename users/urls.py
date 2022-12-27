@@ -1,8 +1,8 @@
-from users.views import register, dashboard
+from users.views import Account  # register, dashboard
 from django.urls import path, include
 
 urlpatterns = [
     path("accounts/", include("django.contrib.auth.urls")),
-    path("dashboard", dashboard, name="dashboard"),
-    path("register", register, name="register"),
+    path("dashboard", Account.dashboard, name="dashboard"),
+    path("register", Account.register, name="register"),
 ]
